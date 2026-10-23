@@ -33,13 +33,15 @@ app = FastAPI(title="TrustVault API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://trust-vault-secure.vercel.app",
+        "https://trust-vault-secure-git-main-trustvault2.vercel.app",
         "http://localhost:5174",
-        "https://your-actual-vercel-domain.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 def connect():
     conn = sqlite3.connect(DB_PATH, timeout=10)
