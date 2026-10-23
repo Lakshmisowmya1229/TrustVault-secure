@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-const API_URL = 'http://127.0.0.1:8001'
+const API_URL = 'https://trustvault-secure.onrender.com';
 
 type DocumentItem = {
   id: string

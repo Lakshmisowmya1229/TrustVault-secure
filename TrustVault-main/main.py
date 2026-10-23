@@ -34,9 +34,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5174",
-        "http://127.0.0.1:5174",
-        "http://localhost:5174",
-        "http://127.0.0.1:5174",
+        "https://your-actual-vercel-domain.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -383,7 +381,7 @@ def admin_audit(limit: int = 100, user=Depends(current_user)):
 
 @app.get("/admin/audit/verify")
 def verify_audit(user=Depends(current_user)):
-    if user["role"] != "admin":
+    if user["role"] not in ("admin", "owner"):
         append_audit(user["id"], None, "verify_audit", "denied", {})
         raise HTTPException(403, "Administrator role required")
     with connect() as db:
