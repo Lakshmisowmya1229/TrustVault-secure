@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+*.py[cod]
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Database and private documents
+*.db
+*.sqlite3
+private_files/
+uploads/
+
+# Frontend
+node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# Editor and OS
+.vscode/
+.DS_Store
+Thumbs.db
